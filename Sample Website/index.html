@@ -1,0 +1,382 @@
+<html lang="en">
+  <head>
+    <style>
+      /* Heading */
+      header {
+        font-size: xx-large;
+        display: flex;
+        background: #f39c12;
+        text-shadow: 2px 2px 3px rgb(77, 76, 76);
+        font-weight:900;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 18%;
+      }
+      /* Navigation Bar */
+      body {
+        margin: 0;
+      }
+      .menu a{
+        text-decoration: none;
+        color: rgb(48, 48, 48);
+      }
+      .dropdown a{
+        color: white;
+      }
+      #navbar {
+        background-color: whitesmoke;
+        width: 100vw;
+        height: 2rem;
+        line-height: 2rem;
+        box-shadow: 0 0 10px grey;
+        font-family: cursive;
+      }
+      .menu {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 2rem;
+        margin: 0 2rem;
+      }
+      .menu li {
+        margin-right: bold;
+        position: relative;
+      }
+      ul {
+        list-style: none;
+      }
+      .dropdown {
+        position: absolute;
+        top: 2rem;
+        left: -1rem;
+        background-color: whitesmoke;
+        box-shadow: 0 0 10px grey;
+        border-radius: 8px;
+        width: 12rem;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.3s opacity ease-in-out;
+        gap: 0.5rem;
+      }
+      .menu li:hover .dropdown {
+        opacity: 1;
+        visibility: visible;
+      }
+      .dropdown li,
+      .sidedrop li {
+        background-color: #2c3e50;
+        color: white;
+        padding: 0.5rem 0.7rem;
+        border-radius: 10px;
+        transition: all 0.4s ease-in-out;
+      }
+      .dropdown li:hover {
+        background-color: #495f75;
+        color: white;
+      }
+      .sidedrop {
+        position: absolute;
+        top: -1rem;
+        left: 10rem;
+        width: 12rem;
+        padding: 1rem;
+        border-radius: 8px;
+        background-color: whitesmoke;
+        box-shadow: 0 0 10px grey;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        transition: 0.3s opacity ease-in-out;
+        opacity: 0;
+        visibility: hidden;
+      }
+      li:hover > ul {
+        opacity: 1;
+        visibility: visible;
+        z-index: 5;
+      }
+      /* Tab menu */
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        padding: 0;
+        margin: 0;
+        font-family: arial, sans-serif;
+        background: #2c3e50;
+      }
+      .tab-wrap {
+        width: 80%;
+        padding: 0;
+        margin: 20px 0 0 50px;
+        position: relative;
+        height: 40rem;
+      }
+      .tab-wrap input[type="radio"] {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;      }
+
+      .tab-wrap li {
+        float: left;
+        display: block;
+        display: flex;
+      }
+      .tab-wrap label {
+        background: #f39c12;
+        color: inherit;
+        text-decoration: none;
+        display: inline-block;
+        border-radius: 3px 3px 0 0;
+        margin: 0 10px 0 0px;
+        padding: 1em 1.5em;
+      }
+      .tab-wrap .tab-content {
+        background: #fff;
+        width: 100%;
+        border-radius: 0 3px 3px 3px;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        padding: 20px;
+        display: none;
+      }
+      .tab-wrap [id^="tab"]:checked + label {
+        background: #fff;
+      }
+      .tab-wrap [id^="tab"]:checked ~ .tab-content {
+        display: block;
+      }
+      /* accordion */
+      #accordion{
+        width: 40%;
+        margin: 50px;
+      }
+      .accordion-tab {
+        margin: 2px;
+      }
+      .accordion-tab >label {
+        color: #fff;
+        background-color: #f39c12;
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: bold;
+        padding: 10px 18px;
+        display: block;
+        position: relative;
+      }
+      .accordion-tab > .accordion-content{
+        max-height: 0;
+        transition: all .4s;
+        overflow: hidden;
+      }
+      .accordion-tab input[type = "checkbox"]{
+        position: absolute;
+        top: -999px;
+        left: -9999px;
+      }
+      .accordion-tab > .accordion-toggle:checked ~ .accordion-content{
+        max-height: 100vh;
+      }
+      .accordion-tab >label:after{
+        content: ">";
+        position: absolute;
+        top: 13px;
+        right: 20px;
+        transform: rotate(90deg);
+        transition: transform .5s;
+      }
+      .accordion-tab > .accordion-toggle:checked ~label::after{
+        transform: rotate(-90deg);
+      }
+      .sidebarmenu{
+        height: 100%;
+        margin-top: 60px;
+        position: fixed;
+        transition: transform 0.1s;
+        left: 0;
+        top: 0;
+        width: 250px;
+        background-color:#495f75;
+        transform: translateX(-250px);
+      }
+      #opensidebarmenu:checked ~ .sidebarmenu{
+        transform: translateX(0px);
+      }
+      .sidebarmenu menu{
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .sidebarmenu menu li{
+        color: #fff;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .sidebarmenu menu li{
+        color: #fff;
+        display: block;
+        text-decoration: none;
+        text-transform: uppercase;
+        padding: 20px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <header>Prince Baba</header>
+    <input type="checkbox" id="opensidebarmenu">
+    <div class="sidebarmenu">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Gallery</a></li>
+        <li><a href="#">Contact us</a></li>
+      </ul>
+    </div>
+    <div id="navbar">
+      <ul class="menu">
+        <li><a href="#">Home</a></li>
+        <li>
+          <a href="#">Menus</a>
+          <ul class="dropdown">
+            <li><a href="">Sub Menu 1</a></li>
+            <li class="sd">
+              <a href="">Sub Menu 2</a>
+              <ul class="sidedrop">
+                <li><a href="">Deep Sub Menu 1</a></li>
+                <li class="sd">
+                  <a href="">Deep Sub Menu 2</a>
+                  <ul class="sidedrop">
+                    <li><a href="">V. Deep Sub Menu 2</a></li>
+                    <li><a href="">V. Deep Sub Menu 2</a></li>
+                    <li><a href="">V. Deep Sub Menu 2</a></li>
+                  </ul>
+                </li>
+                <li><a href="">Deep Sub Menu 3</a></li>
+              </ul>
+            </li>
+            <li><a href="">Sub Menu 3</a></li>
+            <li><a href="">Sub Menu 4</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Support</a></li>
+        <li>
+          <a href="#">Contact Us</a>
+          <ul class="dropdown">
+            <li><a href="">Sub Menu 5</a></li>
+            <li><a href="">Sub Menu 6</a></li>
+            <li><a href="">Sub Menu 7</a></li>
+            <li><a href="">Sub Menu 8</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Help</a></li>
+      </ul>
+    </div>
+    
+    <div id="accordion">
+      <div class="accordion-tab">
+        <input type="checkbox" id="toggle1" class="accordion-toggle" name="toggle">
+        <label for="toggle1">First Accordion</label>
+        <div class="accordion-content">
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam doloremque quasi facere, labore aut commodi tenetur ex placeat eos nihil, perferendis esse corporis amet.</p>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam doloremque quasi facere, labore aut commodi tenetur ex placeat eos nihil</p>
+      </div>
+        </div>
+        <div class="accordion-tab">
+          <input type="checkbox" id="toggle2" class="accordion-toggle" name="toggle">
+          <label for="toggle2">Second Accordion</label>
+          <div class="accordion-content">
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam doloremque quasi facere, labore aut commodi tenetur ex placeat eos nihil, perferendis esse corporis amet.</p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam doloremque quasi facere, labore aut commodi tenetur ex placeat eos nihil</p>
+          </div>
+        </div>
+        <div class="accordion-tab">
+          <input type="checkbox" id="toggle3" class="accordion-toggle" name="toggle">
+          <label for="toggle3">Third Accordion</label>
+          <div class="accordion-content">
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam doloremque quasi facere, labore aut commodi tenetur ex placeat eos nihil, perferendis esse corporis amet.</p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam doloremque quasi facere, labore aut commodi tenetur ex placeat eos nihil</p>
+          </div>
+        </div>
+        <div class="accordion-tab">
+          <input type="checkbox" id="toggle4" class="accordion-toggle" name="toggle">
+          <label for="toggle4">Fourth Accordion</label>
+          <div class="accordion-content">
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam doloremque quasi facere, labore aut commodi tenetur ex placeat eos nihil, perferendis esse corporis amet.</p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam doloremque quasi facere, labore aut commodi tenetur ex placeat eos nihil</p>
+          </div>
+        </div>
+    </div>
+    <div class="tab">
+      <ul class="tab-wrap">
+        <li>
+            <input type="radio" id="tab-1" name="tab" checked />
+            <label for="tab-1">
+                Tab 1
+            </label>
+            <div class="tab-content">
+                <h2>Tab 1</h2>
+                <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam laboriosam voluptatem optio cupiditate aliquam culpa doloremque perspiciatis unde blanditiis repellendus consequuntur rerum accusamus, minus pariatur voluptatum assumenda ad adipisci esse!
+                </p>
+                <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad reprehenderit, ducimus tempore quidem iste quisquam! Illum voluptatibus ad rerum possimus quisquam distinctio, quaerat quod beatae quas, soluta, vel esse consequatur!
+                </p>
+                <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore, illo itaque ratione tempore eius eos ab, aperiam, repellendus sequi, qui et. Nobis repellat, qui voluptate iste asperiores temporibus provident ex.
+                </p>
+                <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum laboriosam porro eum ea eos nihil a dolores corrupti libero, nobis, sequi voluptatum? Unde accusamus laborum ex reiciendis quibusdam aliquam repellat.
+                </p>
+            </div>
+        </li>
+        <li>
+            <input type="radio" id="tab-2" name="tab" />
+            <label for="tab-2">
+                Tab 2
+            </label>
+            <div class="tab-content">
+                <h2>Tab 2</h2>
+                <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, culpa molestias delectus incidunt cum sed impedit aperiam aspernatur aliquam eos. Provident velit minus quia ea amet. Reprehenderit, voluptatem, explicabo. Consequuntur.
+                </p>
+                <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis amet repellat, nam. Beatae consequatur ratione quas omnis similique, alias, doloremque quam soluta rem libero eum error nesciunt maxime iure deleniti!
+                </p>
+                <p>
+                Assumenda rerum dolorum sapiente, voluptatibus nobis dolore debitis autem sed eos inventore odio provident quae molestiae quibusdam voluptate dicta neque, quisquam necessitatibus, expedita aliquam earum alias corrupti! Maxime, quia deleniti!
+                </p>
+                <p>
+                Quidem sunt quae cumque laborum incidunt commodi nam impedit cupiditate molestiae quia, aperiam hic nobis ullam esse neque natus saepe provident excepturi sed, iusto similique fuga libero nisi quod mollitia.
+                </p>
+                <p>
+                Atque voluptas doloremque vel, reprehenderit molestiae modi corrupti assumenda vitae at totam accusamus a autem consectetur, expedita veniam ut sapiente distinctio aliquid eum rerum eos accusantium dolor voluptatibus. Consectetur, voluptate.
+                </p>
+            </div>
+        </li>
+        <li>
+            <input type="radio" id="tab-3" name="tab" />
+            <label for="tab-3">
+                Tab 3
+            </label>
+            <div class="tab-content">
+                <h2>Tab 3</h2>
+                <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, culpa molestias delectus incidunt cum sed impedit aperiam aspernatur aliquam eos. Provident velit minus quia ea amet. Reprehenderit, voluptatem, explicabo. Consequuntur.
+                </p>
+                <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde itaque consequatur sequi repellendus, ipsa quo neque. A eaque veritatis earum, aliquid dolorum itaque tempore, aliquam eum, culpa expedita doloremque nihil.
+                </p>
+                <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam, sapiente. Doloremque quos eius consequuntur alias perspiciatis ratione deserunt soluta nulla sequi, nihil iste sint debitis ea, doloribus eos non. Eligendi?
+                </p>
+            </div>
+        </li>
+    </ul>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation:wght@400;600;700&family=Poppins:wght@100;200;300;500;700&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins';
+}
+
+.container{
+    padding: .5em;
+    max-width: 80vw;
+    margin: auto;
+    width: 90%;
+}
+
+.listContainer{
+    list-style: none;
+    display: flex;
+    gap: 8px;
+}
+
+.header{
+    color: white;
+    min-height: 40vh;
+    background-image: url("bg-image.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.header .list-items a{
+    color: white;
+    text-decoration: none;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 8vh;
+}
+
+.navbar .nav-items{
+    width: 25%;
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+}
+
+.headline{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+ .btn{
+    cursor: pointer;
+    display: inline-block;
+    border-radius: .4rem;
+    border:none;
+    outline:none;
+    background-color: white;
+    color: black;
+}
+
+header .btn:hover{
+    background-color: rgb(203, 202, 202);
+}
+
+.btn-headline{
+    padding: .5rem 1.5rem;
+    margin-top: .5rem;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.section-todo{
+    margin-top: 5rem;
+    text-align: center;
+}
+
+.form-todo{
+    min-height: 5vh;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 1rem;
+}
+
+.form-todo input{
+    min-height: 100%;
+}
+.form-todo input[type="text"]{
+    width: 78%;
+}
+.form-todo input[type="submit"]{
+    width: 20%;
+    background-color: #283949;
+    color: #ffffff;
+    font-weight: bold;
+}
+.form-todo input[type="submit"]:hover{
+    background-color: #212f3b;
+}
+
+.section-todo .todo-list{
+    list-style: none;
+    text-align: left;
+    color: red;
+}
+.section-todo .todo-list li{      
+    background-color: rgb(38, 38, 38);
+    margin: 1rem;
+    color: rgb(255, 255, 255) ;
+    padding: .5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.section-signup{
+    margin-top: 5rem;
+}
+.section-signup h2{
+    text-align: center;
+}
+div.form-group label,
+div.form-group input,
+div.form-group textarea
+{
+    display: block;
+    width: 95%;
+    margin: .3rem;
+}
+div.form-group textarea,
+div.form-group input{
+    padding: .5rem;
+}
+
+div.form-group .btn{
+    width: 100%;
+    padding: .5rem 1rem;
+    font-weight: bold;
+    background-color: #283949;
+    font-size: 1rem;
+    color: white;
+}

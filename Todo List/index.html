@@ -1,0 +1,106 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+  <header class="header">
+    <nav class="navbar container">
+      <h1 class="logo">Website</h1>
+      <ul class="listContainer">
+        <li class="list-items"><a href="#">Home</a></li>
+        <li class="list-items"><a href="#">Todo</a></li>
+        <li class="list-items"><a href="#">SignUp</a></li>
+      </ul>
+    </nav>
+    <div class="headline">
+      <h2>Manage your tasks</h2>
+      <button class="btn btn-headline">Learn More</button>
+    </div>
+  </header>
+
+  <section class="section-todo container">
+    <h2>Plan for Today ?</h2>
+    <form class="form-todo">
+      <input type="text" name="" placeholder="Add Todo">
+      <input type="submit" id="sex" value="Add Todo" class="btn">
+    </form>
+    <ul class="todo-list">
+      <li class="list-items">
+        <span class='text'>New todo</span>
+        <div class="todo-buttons">
+          <button class="done innerbtns">Done</button>
+          <button class="remove innerbtns">Remove</button>
+        </div>
+      </li>
+    </ul>
+  </section>
+  <section class="section-signup container">
+    <h2>Sign Up</h2>
+    <form class="SignUpForm">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username">
+    </div>
+    <div class="form-group">
+      <label for="Password">Password</label>
+      <input type="password" name="Password" id="Password">
+    </div>
+    <div class="form-group">
+      <label for="ConfirmPassword">Confirm Password</label>
+      <input type="password" name="ConfirmPassword" id="ConfirmPassword">
+    </div>
+    <div class="form-group">
+      <label for="Phone">Phone</label>
+      <input type="number" name="Phone" id="Phone">
+    </div>
+    <div class="form-group">
+      <label for="Email">Email</label>
+      <input type="email" name="Email" id="Email">
+    </div>
+    <div class="form-group">
+      <label for="Feedback">Feedback</label>
+      <textarea name="Feedback" id="Feedback" cols="40" rows="3"></textarea>  
+    </div>
+    <div class="form-group">
+      <button class="btn" type="submit">Submit</button>
+    </div>
+  </form>
+  </section>
+  <script>
+    element = document.querySelector('.form-todo');
+    Target = document.querySelector('.todo-list');
+    element.addEventListener('submit',func);
+    function func(e){
+      text = e.target.firstElementChild.value;
+      if (text) {
+        e.preventDefault();
+        e.target.firstElementChild.value = ''
+        todo_list=document.querySelector('.todo-list');
+        Target.insertAdjacentHTML('beforeend',`
+        <li class="list-items">
+         <span class='text'>${text}</span>
+         <div class="todo-buttons">
+          <button class="done innerbtns">Done</button>
+          <button class="remove innerbtns">Remove</button>
+         </div>
+        </li>
+        `);
+      }
+    }
+    todo_list=document.querySelector('.todo-list');
+    todo_list.addEventListener('click',f1);
+    function f1(e) {
+      if(e.target.classList.contains('done')){
+        e.target.parentNode.previousElementSibling.style.textDecoration = 'Line-through';
+      }
+      if(e.target.classList.contains('remove')){
+        e.target.parentNode.parentNode.remove();
+      }
+    }
+    </script>
+</body>
+</html>

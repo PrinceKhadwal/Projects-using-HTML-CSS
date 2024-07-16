@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation:wght@400;600;700&display=swap');
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-size: 62.5%;
+}
+body{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* @@@@@@@@@@@@@       Utility classes     @@@@@@@@@@@ */
+
+.container{
+    max-width: 120rem;
+    width: 80%;
+    margin: 0 auto;
+}
+/* @@@@@@@@@@@@@@   Navbar style      @@@@@@@@@@@@@@@@@@@@ */ 
+/* @@@@@@@@@@@@2   for desktop mode    @@@@@@@@@@@/ */
+.navbar input[type = checkbox],
+.navbar .hamburger-lines{   display: none;
+}
+.navbar{
+    position: fixed;
+    width: 100%;
+    box-shadow: 0 5px 10px rgb(120, 119, 119);
+    background-color: #fff;
+    opacity: 0.8;
+    z-index: 999;
+}
+.navbar .navbar-container{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 6rem;
+}
+.navbar .navbar-menus{
+    list-style: none;
+}
+.navbar .navbar-menus li{   
+    display: inline-block;
+    font-size: 1.3rem;
+}
+.navbar .navbar-menus a{
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    padding: .3rem;
+    transition: hover .2s;
+}
+.navbar .navbar-menus a:hover{
+    color: green;
+}
+.navbar .navbar-container .logo{
+    order: -1;
+}
+
+/*@@@@@@@    showcase    @@@@@@@ */
+
+.showcase{
+    width: 100%;
+    height: 50vh;
+    background-image:linear-gradient(rgba(240,240,240,.188), rgba(222,222,222,.188)), url("./header-image2.jpg");
+    background-size:cover;
+    background-position: center;
+}
+.showcase .showcase-content{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    height: 100%;
+}
+.showcase .showcase-content h2{
+    text-transform: uppercase;
+}
+.showcase .showcase-content .btn{
+    color: white;
+    text-decoration: none;
+    border-radius: 2rem;
+    display: inline-block;
+    padding:.8rem 1.8rem;
+    text-transform: uppercase;
+    background-color:rgb(5, 127, 70);
+}
+/* @@@@@@@@ about section  @@@@@@@@ */
+.about{
+    background-color: #f5f5f7;
+    padding: 5rem 0;
+}
+.about .box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.about .about-content{
+    padding: .5rem;
+    width: 50%;
+    background-color: whitesmoke;
+}
+.about .about-content h4 + p{
+    font-size: 3rem;
+    font-weight:900;
+}
+.about .about-content h4 + p ~p{
+    font-size: 1.6rem;
+    color: grey;
+}
+.about .image{
+    height: 100%;
+    width: 50%;
+    height: 25rem;
+    flex: 1 1 300px;
+}
+.about .image img{
+    width: 100%;
+    height: 3250rem;
+    max-height: 100%;
+    object-fit: cover;
+    object-position: right;
+}
+
+/* @@@@@@@@@@@@@@@   Food container CSS    @@@@@@@@@@@@@@@ */
+
+section.food{
+    padding: 5rem 0;
+    text-align: center;
+}
+section.food > h2{
+    color: rgb(135, 133, 133);
+    font-size: large;
+    text-transform: uppercase;
+}
+section.food > .t3in1-container{
+    width: 100%;
+    display: flex;
+    gap: 2rem;
+    padding: 2rem 0;
+}
+section.food > .t3in1-container .img-container{
+    width: 100%;
+    position: relative;
+}
+section.food > .t3in1-container .img-container .img-content{
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 2;
+    /* opacity: 1; */
+}
+section.food > .t3in1-container .img-container::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0,.8);
+    z-index: 1;
+    opacity: 1;
+    /* transform: translate(0%,100%); */
+}
+/* .img-container:hover .img-content{ */
+    /* opacity: 1; */
+    /* top:40%; */
+/* } */
+section.food > .t3in1-container .img-container .image{
+    width: 100%;
+    object-fit: cover;
+    display: block;    
+}
+section.food > .t3in1-container .img-container .img-content h3{
+    font-size: 3rem;
+    color: #fff;
+}
+section.food > .t3in1-container .img-container .img-content .btn{
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: 400;
+    padding: 1rem 1rem;
+    border-radius: 1rem;
+    background-color: rgb(1, 161, 81);
+}
